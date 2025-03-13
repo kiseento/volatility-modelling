@@ -1,0 +1,3 @@
+ARCH Test p-value (Series 1):0.287090467420778
+ARCH Test p-value (Series 2):0.220947993074063
+

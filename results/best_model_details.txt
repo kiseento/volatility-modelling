@@ -1,0 +1,7 @@
+Best ARMA Order: (1, 1)
+Best GARCH Order: (1, 2)
+Best Distribution: ged
+Best AIC: -10.3533735550895
+Best BIC: -10.2390467563778
+Best Log-Likelihood: 1276.28826049847
+

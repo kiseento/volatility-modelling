@@ -1,0 +1,13 @@
+Best Univariate GARCH Models:
+------------------------------
+Series 1:
+  ARMA Order: (0, 1)
+  GARCH Order: (1, 1)
+  Distribution: ged
+  AIC: -10.3557857987133
+Series 2:
+  ARMA Order: (1, 1)
+  GARCH Order: (1, 2)
+  Distribution: ged
+  AIC: -10.2686071909921
+

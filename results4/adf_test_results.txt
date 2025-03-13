@@ -1,0 +1,2 @@
+ADF Test p-value: 0.01 
+
