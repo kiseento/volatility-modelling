@@ -15,7 +15,7 @@ save_table_output <- function(data, filename) {
   write.table(data, file.path("results5", filename), sep = "\t", row.names = FALSE, quote = FALSE)
 }
 
-# ✅ Data loading & preprocessing
+# Data loading & preprocessing
 cat("Loading data...\n")
 data <- read.csv("TRADE WEIGHTED AVERAGE INDICATIVE RATES.csv")
 data$Date <- as.Date(data$Date, format="%d/%m/%Y")
@@ -43,7 +43,7 @@ log_returns_table <- data.frame(
 )
 save_table_output(log_returns_table, "log_returns.txt")
 
-# ✅ Model Selection & Fitting
+# Model Selection & Fitting
 cat("Automatically selecting best DCC-GARCH model...\n")
 auto_univariate_garch <- function(returns) {
   best_aic <- Inf
@@ -85,7 +85,7 @@ auto_univariate_garch <- function(returns) {
 best_model1 <- auto_univariate_garch(returns)
 best_model2 <- auto_univariate_garch(returns2)
 
-# ✅ DCC-GARCH Model Specification
+# DCC-GARCH Model Specification
 cat("Specifying DCC-GARCH model...\n")
 uspec1 <- ugarchspec(
   variance.model = list(model = "sGARCH", garchOrder = best_model1$garch_order),
@@ -113,7 +113,7 @@ if (fit@mfit$convergence != 0) {
 }
 print(fit)
 
-# ✅ Forecasting
+# Forecasting
 cat("Forecasting volatility and correlations...\n")
 n_ahead <- 10  
 forecast <- dccforecast(fit, n.ahead = n_ahead)
@@ -140,7 +140,7 @@ save_table_output(forecast_results, "forecast_results.txt")
 
 cat("Forecasting completed. Results saved in 'results5' directory.\n")
 
-# ✅ Plotting Volatilities and Correlation
+# Plotting Volatilities and Correlation
 cat("Generating and saving plots...\n")
 
 # Combine volatilities into a single data frame for plotting

@@ -21,7 +21,7 @@ save_plot <- function(plot_func, filename, width = 800, height = 600) {
   dev.off()
 }
 
-# ✅ Data loading & preprocessing
+# Data loading & preprocessing
 cat("Loading data...\n")
 data <- read.csv("TRADE WEIGHTED AVERAGE INDICATIVE RATES.csv")
 data$Date <- as.Date(data$Date, format="%d/%m/%Y")
@@ -59,7 +59,7 @@ if (adf_test$p.value > 0.05) {
 # Save ADF test results
 save_text_output(adf_result, "adf_test_results.txt")
 
-# ✅ ARMA order selection, GARCH order selection, and distribution selection
+# ARMA order selection, GARCH order selection, and distribution selection
 cat("Selecting best ARMA-GARCH model...\n")
 auto_garch <- function(returns) {
   best_aic <- Inf
@@ -132,7 +132,7 @@ best_model_details <- paste(
 cat(best_model_details)
 save_text_output(best_model_details, "best_model_details.txt")
 
-# ✅ Model fitting
+# Model fitting
 cat("Fitting the best model...\n")
 spec <- ugarchspec(
   variance.model = list(model = "apARCH", garchOrder = best_model$garch_order),  # Use apARCH for PGARCH
@@ -146,7 +146,7 @@ sink(file.path("results3", "pgarch_fit_summary.txt"))  # Updated file name
 summary(fit)
 sink()
 
-# ✅ Model diagnostics
+# Model diagnostics
 cat("Performing model diagnostics...\n")
 residuals <- residuals(fit)
 
@@ -171,7 +171,7 @@ arch_test_result <- paste(
 cat(arch_test_result)
 save_text_output(arch_test_result, "arch_test_result.txt")
 
-# ✅ Forecasting
+# Forecasting
 cat("Forecasting volatility...\n")
 n_ahead <- 10  # Number of periods to forecast
 forecast <- ugarchforecast(fit, n.ahead = n_ahead)
@@ -210,10 +210,10 @@ cat(formatted_forecast_results)
 # Save forecast plot
 save_plot(function() plot(forecast, which = 3), "pgarch_forecast.png")  # Updated file name
 
-# ✅ Final message
+# Final message
 cat("All results and plots saved in the 'results3' folder.\n")
 
-# ✅ Validation
+# Validation
 actual_rates <- c(129.2927, 129.3060, 129.2894, 129.3480, 129.3805, 
                   129.4176, 129.4688, 129.4860, 129.4843, 129.5063, 129.4729)
 
