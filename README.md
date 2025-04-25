@@ -16,9 +16,9 @@ To analyze and compare the performance of different GARCH models—`sGARCH`, `eG
 
 ## Dataset
 
-- **Source**: CBK or Forex historical data
+- **Source**: CBK
 - **Frequency**: Daily
-- **Period Covered**: [Specify date range]
+- **Period Covered**: [Jan-Dec 2024]
 - **Variables**: `Date`, `ExchangeRate` (KES/USD)
 
 
@@ -49,9 +49,9 @@ To analyze and compare the performance of different GARCH models—`sGARCH`, `eG
 
 ## Results
 
-- The best-performing model: **[Insert model here]**
-- Highest Directional Accuracy: **[Insert model here]**
-- Most stable forecast: **[Insert model here]**
+- The best-performing model: **[sGARCH]**
+- Highest Directional Accuracy: **[sGARCH- 66.67%]**
+- Most stable forecast: **[sGARCH- stability in horizon]**
 
  Visualizations include time series plots, residual diagnostics, and volatility forecasts._
 
